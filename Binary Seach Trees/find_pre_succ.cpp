@@ -1,0 +1,33 @@
+void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
+{
+    
+    
+    // set pre and suc as NULL initially
+    pre = NULL;
+    suc = NULL;
+ 
+    // set temp node as root
+    Node* temp1 = root;                  //finding successor
+    while (temp1) {
+        // the maximum value in left subtree is successor
+        if (temp1->key > key) {
+            suc = temp1;
+            temp1 = temp1->left;
+        }
+        else
+            temp1 = temp1->right;
+    }
+    Node* temp2 = root;                  //finding predecessor
+    while (temp2) {
+        // the minimum value in right subtree is predecessor
+        if (temp2->key < key) {
+            pre = temp2;
+            temp2 = temp2->right;
+        }
+        else
+            temp2 = temp2->left;
+    }
+    return;
+
+
+}
